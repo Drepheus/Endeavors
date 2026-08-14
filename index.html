@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Businesses & Endeavors</title>
+  <meta name="description" content="A curated collection of businesses and endeavors." />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            ink: {
+              950: '#0a0a0a',
+              900: '#111113',
+              800: '#18181b',
+              700: '#232326',
+            },
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    ::selection { background: #e4e4e7; color: #0a0a0a; }
+    html { scrollbar-width: thin; scrollbar-color: #3f3f46 #0a0a0a; }
+    body { -webkit-font-smoothing: antialiased; }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    .card-glow { transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, background 0.4s ease; }
+    .card-glow:hover { transform: translateY(-6px); border-color: #52525b; }
+    .card-glow::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      background: radial-gradient(220px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.07), transparent 70%);
+      pointer-events: none;
+    }
+    .card-glow:hover::after { opacity: 1; }
+  </style>
+</head>
+
+<body class="bg-ink-950 text-zinc-300 font-body overflow-x-hidden">
+
+  <!-- Ambient background -->
+  <div class="fixed inset-0 -z-10 pointer-events-none">
+    <div class="absolute inset-0 bg-ink-950"></div>
+    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-zinc-800/20 blur-[160px] rounded-full"></div>
+    <div class="absolute top-1/2 -right-40 w-[500px] h-[500px] bg-zinc-900/40 blur-[140px] rounded-full"></div>
+    <div class="absolute inset-0 opacity-[0.35] [background-image:radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.05)_1px,transparent_0)] [background-size:28px_28px]"></div>
+  </div>
+
+  <!-- ============ NAV ============ -->
+  <header class="fixed top-0 inset-x-0 z-50" id="site-header">
+    <nav class="max-w-6xl mx-auto px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20 border-b border-white/5">
+        <a href="index.html" class="font-display font-semibold text-zinc-100 text-lg tracking-tight">
+          A<span class="text-zinc-500">/</span>
+        </a>
+
+        <ul class="hidden md:flex items-center gap-10 text-sm">
+          <li><a href="#work" class="text-zinc-400 hover:text-zinc-100 transition-colors">Work</a></li>
+          <li><a href="#about" class="text-zinc-400 hover:text-zinc-100 transition-colors">About</a></li>
+          <li><a href="#contact" class="text-zinc-400 hover:text-zinc-100 transition-colors">Contact</a></li>
+        </ul>
+
+        <div class="flex items-center gap-4">
+          <a href="#contact" class="hidden md:inline-flex items-center gap-2 text-sm px-4 py-2 rounded-full border border-white/10 text-zinc-200 hover:border-white/30 hover:bg-white/5 transition-all">
+            Get in touch
+          </a>
+          <button id="menu-toggle" class="md:hidden flex flex-col justify-center items-center w-10 h-10" aria-label="Toggle menu">
+            <span class="block w-5 h-px bg-zinc-200 mb-1.5 transition-transform"></span>
+            <span class="block w-5 h-px bg-zinc-200 transition-transform"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="md:hidden hidden">
+        <div class="py-6 space-y-4 border-b border-white/5 bg-ink-950/95 backdrop-blur">
+          <a href="#work" class="block text-lg font-display text-zinc-200">Work</a>
+          <a href="#about" class="block text-lg font-display text-zinc-200">About</a>
+          <a href="#contact" class="block text-lg font-display text-zinc-200">Contact</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="relative min-h-screen flex flex-col justify-center px-6 lg:px-8 pt-24">
+    <div class="max-w-6xl mx-auto w-full">
+      <p class="reveal font-display text-xs md:text-sm tracking-[0.35em] uppercase text-zinc-500 mb-6">
+        Portfolio — MMXXVI
+      </p>
+
+      <h1 class="reveal font-display font-semibold text-zinc-50 text-5xl md:text-7xl lg:text-8xl leading-[1.02] tracking-tight" style="transition-delay: 100ms">
+        A collection of<br />
+        <span class="text-zinc-500">businesses &</span><br />
+        endeavors.
+      </h1>
+
+      <p class="reveal max-w-xl mt-8 text-zinc-400 text-base md:text-lg font-light leading-relaxed" style="transition-delay: 200ms">
+        Four projects. Each with its own story, craft, and momentum.
+        Select one below to step inside.
+      </p>
+
+      <div class="reveal mt-12 flex items-center gap-6" style="transition-delay: 300ms">
+        <a href="#work" class="inline-flex items-center gap-3 group">
+          <span class="w-12 h-12 rounded-full border border-white/15 flex items-center justify-center group-hover:border-white/40 group-hover:bg-white/5 transition-all">
+            <svg class="w-4 h-4 text-zinc-300 group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"/></svg>
+          </span>
+          <span class="text-sm tracking-widest uppercase text-zinc-400 group-hover:text-zinc-100 transition-colors">Explore the work</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-[10px] tracking-[0.3em] uppercase text-zinc-600 hidden md:block">
+      Scroll
+    </div>
+  </section>
+
+  <!-- ============ SECTIONS / WORK ============ -->
+  <section id="work" class="px-6 lg:px-8 py-16 md:py-24 scroll-mt-20">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex items-end justify-between mb-10 md:mb-16">
+        <div>
+          <p class="reveal font-display text-xs tracking-[0.35em] uppercase text-zinc-500 mb-3">Sections</p>
+          <h2 class="reveal font-display font-semibold text-zinc-50 text-3xl md:text-5xl tracking-tight" style="transition-delay: 80ms">
+            The endeavors.
+          </h2>
+        </div>
+        <p class="reveal hidden md:block text-sm text-zinc-500 font-display tracking-widest" style="transition-delay: 160ms">01 — 04</p>
+      </div>
+
+      <div class="grid gap-5 md:gap-6">
+
+        <!-- ============= VENTURE 01 ============= -->
+        <!-- Edit: name, tagline, description -->
+        <a href="venture-1.html"
+           class="card-glow reveal group relative block rounded-2xl border border-white/10 bg-white/[0.02] p-8 md:p-12 overflow-hidden">
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-white/[0.04] to-transparent"></div>
+          <div class="relative flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div class="flex items-start gap-6 md:gap-10">
+              <span class="font-display text-zinc-600 text-xl md:text-2xl font-medium pt-1">01</span>
+              <div>
+                <h3 class="font-display font-semibold text-zinc-50 text-2xl md:text-4xl tracking-tight group-hover:text-white transition-colors">
+                  Venture One
+                </h3>
+                <p class="mt-3 max-w-md text-zinc-400 text-sm md:text-base font-light leading-relaxed">
+                  Short description goes here. One or two sentences about what this business is and what it does.
+                </p>
+                <div class="mt-5 flex flex-wrap gap-2">
+                  <span class="text-[11px] tracking-widest uppercase text-zinc-500 border border-white/10 rounded-full px-3 py-1">Tag one</span>
+                  <span class="text-[11px] tracking-widest uppercase text-zinc-500 border border-white/10 rounded-full px-3 py-1">Tag two</span>
+                </div>
+              </div>
+            </div>
+            <div class="md:shrink-0">
+              <span class="inline-flex w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/10 items-center justify-center group-hover:border-white/40 group-hover:bg-white/5 transition-all">
+                <svg class="w-5 h-5 text-zinc-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- ============= VENTURE 02 ============= -->
+        <!-- Edit: name, tagline, description -->
+        <a href="venture-2.html"
+           class="card-glow reveal group relative block rounded-2xl border border-white/10 bg-white/[0.02] p-8 md:p-12 overflow-hidden">
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-white/[0.04] to-transparent"></div>
+          <div class="relative flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div class="flex items-start gap-6 md:gap-10">
+              <span class="font-display text-zinc-600 text-xl md:text-2xl font-medium pt-1">02</span>
+              <div>
+                <h3 class="font-display font-semibold text-zinc-50 text-2xl md:text-4xl tracking-tight group-hover:text-white transition-colors">
+                  Venture Two
+                </h3>
+                <p class="mt-3 max-w-md text-zinc-400 text-sm md:text-base font-light leading-relaxed">
+                  Short description goes here. One or two sentences about what this business is and what it does.
+                </p>
+                <div class="mt-5 flex flex-wrap gap-2">
+                  <span class="text-[11px] tracking-widest uppercase text-zinc-500 border border-white/10 rounded-full px-3 py-1">Tag one</span>
+                  <span class="text-[11px] tracking-widest uppercase text-zinc-500 border border-white/10 rounded-full px-3 py-1">Tag two</span>
+                </div>
+              </div>
+            </div>
+            <div class="md:shrink-0">
+              <span class="inline-flex w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/10 items-center justify-center group-hover:border-white/40 group-hover:bg-white/5 transition-all">
+                <svg class="w-5 h-5 text-zinc-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- ============= VENTURE 03 ============= -->
+        <!-- Edit: name, tagline, description -->
+        <a href="venture-3.html"
+           class="card-glow reveal group relative block rounded-2xl border border-white/10 bg-white/[0.02] p-8 md:p-12 overflow-hidden">
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-white/[0.04] to-transparent"></div>
+          <div class="relative flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div class="flex items-start gap-6 md:gap-10">
+              <span class="font-display text-zinc-600 text-xl md:text-2xl font-medium pt-1">03</span>
+              <div>
+                <h3 class="font-display font-semibold text-zinc-50 text-2xl md:text-4xl tracking-tight group-hover:text-white transition-colors">
+                  Venture Three
+                </h3>
+                <p class="mt-3 max-w-md text-zinc-400 text-sm md:text-base font-light leading-relaxed">
+                  Short description goes here. One or two sentences about what this business is and what it does.
+                </p>
+                <div class="mt-5 flex flex-wrap gap-2">
+                  <span class="text-[11px] tracking-widest uppercase text-zinc-500 border border-white/10 rounded-full px-3 py-1">Tag one</span>
+                  <span class="text-[11px] tracking-widest uppercase text-zinc-500 border border-white/10 rounded-full px-3 py-1">Tag two</span>
+                </div>
+              </div>
+            </div>
+            <div class="md:shrink-0">
+              <span class="inline-flex w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/10 items-center justify-center group-hover:border-white/40 group-hover:bg-white/5 transition-all">
+                <svg class="w-5 h-5 text-zinc-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- ============= VENTURE 04 ============= -->
+        <!-- Edit: name, tagline, description -->
+        <a href="venture-4.html"
+           class="card-glow reveal group relative block rounded-2xl border border-white/10 bg-white/[0.02] p-8 md:p-12 overflow-hidden">
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-white/[0.04] to-transparent"></div>
+          <div class="relative flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div class="flex items-start gap-6 md:gap-10">
+              <span class="font-display text-zinc-600 text-xl md:text-2xl font-medium pt-1">04</span>
+              <div>
+                <h3 class="font-display font-semibold text-zinc-50 text-2xl md:text-4xl tracking-tight group-hover:text-white transition-colors">
+                  Venture Four
+                </h3>
+                <p class="mt-3 max-w-md text-zinc-400 text-sm md:text-base font-light leading-relaxed">
+                  Short description goes here. One or two sentences about what this business is and what it does.
+                </p>
+                <div class="mt-5 flex flex-wrap gap-2">
+                  <span class="text-[11px] tracking-widest uppercase text-zinc-500 border border-white/10 rounded-full px-3 py-1">Tag one</span>
+                  <span class="text-[11px] tracking-widest uppercase text-zinc-500 border border-white/10 rounded-full px-3 py-1">Tag two</span>
+                </div>
+              </div>
+            </div>
+            <div class="md:shrink-0">
+              <span class="inline-flex w-12 h-12 md:w-14 md:h-14 rounded-full border border-white/10 items-center justify-center group-hover:border-white/40 group-hover:bg-white/5 transition-all">
+                <svg class="w-5 h-5 text-zinc-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="px-6 lg:px-8 py-16 md:py-24 scroll-mt-20">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 md:gap-20">
+      <div>
+        <p class="reveal font-display text-xs tracking-[0.35em] uppercase text-zinc-500 mb-3">About</p>
+        <h2 class="reveal font-display font-semibold text-zinc-50 text-3xl md:text-5xl tracking-tight" style="transition-delay: 80ms">
+          Operator,<br />builder, student.
+        </h2>
+      </div>
+      <div class="space-y-6 text-zinc-400 font-light leading-relaxed">
+        <p class="reveal">
+          A line or two about the person behind these projects — approach, philosophy,
+          and what drives each venture.
+        </p>
+        <p class="reveal" style="transition-delay: 80ms">
+          Another brief paragraph. This section is intentionally modest: the work
+          speaks first, the story second.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT / FOOTER ============ -->
+  <section id="contact" class="px-6 lg:px-8 pt-16 md:pt-24 pb-10 scroll-mt-20">
+    <div class="max-w-6xl mx-auto border-t border-white/5 pt-16 md:pt-20">
+      <p class="reveal font-display text-xs tracking-[0.35em] uppercase text-zinc-500 mb-4">Contact</p>
+      <a href="mailto:you@example.com" class="reveal font-display font-semibold text-zinc-50 text-3xl md:text-6xl tracking-tight hover:text-zinc-300 transition-colors">
+        you@example.com
+      </a>
+      <div class="mt-16 md:mt-24 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pt-8 border-t border-white/5">
+        <p class="font-display font-semibold text-zinc-100">A<span class="text-zinc-500">/</span></p>
+        <p class="text-xs tracking-widest uppercase text-zinc-600">© 2026 — All rights reserved</p>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
