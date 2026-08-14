@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Venture Three — Portfolio</title>
-  <meta name="description" content="Venture Three — details." />
+  <title>Sweat Is Gold — Elite Personal Training</title>
+  <meta name="description" content="Sweat Is Gold — elite personal training with Rod Harris. Custom programming, nutrition mastery, 24/7 accountability. Ten-plus years, 500+ transformations." />
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -40,6 +40,12 @@
     body { -webkit-font-smoothing: antialiased; }
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
     .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    .gold-text {
+      background: linear-gradient(120deg, #FCCF4D 0%, #D4AF37 45%, #FBF5B7 70%, #D4AF37 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
   </style>
 </head>
 
@@ -48,7 +54,8 @@
   <!-- Ambient background -->
   <div class="fixed inset-0 -z-10 pointer-events-none">
     <div class="absolute inset-0 bg-ink-950"></div>
-    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-zinc-800/15 blur-[160px] rounded-full"></div>
+    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-[#D4AF37]/[0.06] blur-[160px] rounded-full"></div>
+    <div class="absolute top-1/2 -right-40 w-[500px] h-[500px] bg-[#FCCF4D]/[0.04] blur-[140px] rounded-full"></div>
     <div class="absolute inset-0 opacity-[0.35] [background-image:radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.05)_1px,transparent_0)] [background-size:28px_28px]"></div>
   </div>
 
@@ -69,16 +76,34 @@
 
   <!-- ============ HERO ============ -->
   <section class="px-6 lg:px-8 pt-32 md:pt-44 pb-16 md:pb-24">
-    <div class="max-w-6xl mx-auto">
-      <p class="reveal font-display text-xs md:text-sm tracking-[0.35em] uppercase text-zinc-500 mb-6">
-        03 — Venture Three
-      </p>
-      <h1 class="reveal font-display font-semibold text-zinc-50 text-5xl md:text-7xl lg:text-8xl leading-[1.02] tracking-tight" style="transition-delay: 100ms">
-        Venture Three
-      </h1>
-      <p class="reveal max-w-xl mt-6 text-zinc-400 text-base md:text-lg font-light leading-relaxed" style="transition-delay: 200ms">
-        Tagline or one-line positioning statement for this endeavor goes here.
-      </p>
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row md:items-start md:justify-between gap-12">
+      <div>
+        <p class="reveal font-display text-xs md:text-sm tracking-[0.35em] uppercase text-[#D4AF37] mb-6">
+          03 — SweatIsGold · Elite Personal Training
+        </p>
+        <h1 class="reveal font-display font-semibold text-5xl md:text-7xl lg:text-8xl leading-[1.02] tracking-tight" style="transition-delay: 100ms">
+          <span class="gold-text">Sweat Is Gold</span>
+        </h1>
+        <p class="reveal max-w-xl mt-6 text-zinc-400 text-base md:text-lg font-light leading-relaxed" style="transition-delay: 200ms">
+          Elite personal training with Rod Harris — body sculpting, custom meal
+          plans, and unrelenting accountability for aggressive results.
+        </p>
+        <div class="reveal mt-8 flex flex-wrap items-center gap-3" style="transition-delay: 280ms">
+          <a href="https://sweatisgold.com" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-2 text-sm px-5 py-2.5 rounded-full border border-[#D4AF37]/50 text-[#D4AF37] hover:bg-[#D4AF37]/10 hover:border-[#D4AF37]/80 transition-all group">
+            Visit sweatisgold.com
+            <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+          </a>
+          <span class="text-xs tracking-widest uppercase text-zinc-600">Nothing is given. Everything is earned.</span>
+        </div>
+      </div>
+      <div class="hidden md:flex md:items-start md:shrink-0">
+        <div class="reveal relative" style="transition-delay: 250ms">
+          <div class="absolute -inset-6 bg-[#D4AF37]/10 blur-3xl rounded-full"></div>
+          <img src="assets/img/sweatisgold-logo.svg" alt="Sweat Is Gold logo"
+               class="relative w-40 lg:w-52 rounded-3xl" />
+        </div>
+      </div>
     </div>
   </section>
 
@@ -90,39 +115,211 @@
       </div>
       <div class="md:col-span-8 space-y-6">
         <p class="reveal text-zinc-300 text-lg md:text-xl font-light leading-relaxed">
-          Longer overview paragraph. What the business is, what problem it solves,
-          and the shape of the operation today.
+          SweatIsGold is the personal training practice of Rod Harris. Not a gym,
+          not a class — a one-on-one coaching business built on a single core
+          philosophy: nothing is given, everything is earned. Every program,
+          every session, and every meal plan is engineered with precision.
         </p>
         <p class="reveal text-zinc-500 font-light leading-relaxed" style="transition-delay: 80ms">
-          Supporting paragraph with additional context — founding story, market,
-          approach, or milestones so far.
+          The approach combines scientifically-backed training methods with
+          old-school grit and unrelenting accountability — tailored programming
+          for your biomechanics, direct 24/7 access to coaching, and custom
+          macro nutrition plans. The website even ships its own AI coach,
+          meeting clients before the first session ever does.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- ============ STAT GRID ============ -->
+  <!-- ============ PHILOSOPHY / STATS ============ -->
   <section class="px-6 lg:px-8 py-12 md:py-16">
-    <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-px bg-white/5 rounded-2xl overflow-hidden border border-white/10">
-      <!-- Edit: statistic label / value -->
-      <div class="reveal bg-ink-950 p-8">
-        <p class="font-display text-3xl md:text-4xl font-semibold text-zinc-50">0</p>
-        <p class="mt-2 text-xs tracking-widest uppercase text-zinc-500">Stat one</p>
+    <div class="max-w-6xl mx-auto">
+      <div class="reveal relative rounded-2xl border border-[#D4AF37]/40 bg-gradient-to-br from-[#D4AF37]/[0.08] via-transparent to-transparent p-8 md:p-12 mb-4 overflow-hidden">
+        <div class="absolute -right-16 -top-16 w-64 h-64 bg-[#D4AF37]/10 blur-3xl rounded-full pointer-events-none"></div>
+        <p class="font-display text-xs tracking-[0.35em] uppercase text-[#D4AF37] mb-4">The philosophy</p>
+        <p class="font-display font-semibold text-zinc-50 text-2xl md:text-4xl tracking-tight leading-snug">
+          "We don't do excuses. We do the work. The sweat is your currency —
+          <span class="gold-text">and the results are the gold.</span>"
+        </p>
       </div>
-      <!-- Edit: statistic label / value -->
-      <div class="reveal bg-ink-950 p-8" style="transition-delay: 60ms">
-        <p class="font-display text-3xl md:text-4xl font-semibold text-zinc-50">0</p>
-        <p class="mt-2 text-xs tracking-widest uppercase text-zinc-500">Stat two</p>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="reveal rounded-2xl border border-white/10 bg-white/[0.02] p-8">
+          <p class="font-display text-3xl md:text-4xl font-semibold text-[#D4AF37]">10+</p>
+          <p class="mt-2 text-xs tracking-widest uppercase text-zinc-500">Years experience</p>
+        </div>
+        <div class="reveal rounded-2xl border border-white/10 bg-white/[0.02] p-8" style="transition-delay: 60ms">
+          <p class="font-display text-3xl md:text-4xl font-semibold text-[#D4AF37]">500+</p>
+          <p class="mt-2 text-xs tracking-widest uppercase text-zinc-500">Transformations</p>
+        </div>
+        <div class="reveal rounded-2xl border border-white/10 bg-white/[0.02] p-8" style="transition-delay: 120ms">
+          <p class="font-display text-3xl md:text-4xl font-semibold text-[#D4AF37]">$199</p>
+          <p class="mt-2 text-xs tracking-widest uppercase text-zinc-500">Online training, from</p>
+        </div>
+        <div class="reveal rounded-2xl border border-white/10 bg-white/[0.02] p-8" style="transition-delay: 180ms">
+          <p class="font-display text-3xl md:text-4xl font-semibold text-[#D4AF37]">24/7</p>
+          <p class="mt-2 text-xs tracking-widest uppercase text-zinc-500">Accountability</p>
+        </div>
       </div>
-      <!-- Edit: statistic label / value -->
-      <div class="reveal bg-ink-950 p-8" style="transition-delay: 120ms">
-        <p class="font-display text-3xl md:text-4xl font-semibold text-zinc-50">0</p>
-        <p class="mt-2 text-xs tracking-widest uppercase text-zinc-500">Stat three</p>
+    </div>
+  </section>
+
+  <!-- ============ THE SERVICES ============ -->
+  <section class="px-6 lg:px-8 py-12 md:py-16 border-t border-white/5">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16">
+      <div class="md:col-span-4">
+        <p class="reveal font-display text-xs tracking-[0.35em] uppercase text-zinc-500">The services</p>
+        <h2 class="reveal font-display font-semibold text-zinc-50 text-2xl md:text-4xl tracking-tight mt-3" style="transition-delay: 80ms">
+          Invest in<br />the grind.
+        </h2>
       </div>
-      <!-- Edit: statistic label / value -->
-      <div class="reveal bg-ink-950 p-8" style="transition-delay: 180ms">
-        <p class="font-display text-3xl md:text-4xl font-semibold text-zinc-50">0</p>
-        <p class="mt-2 text-xs tracking-widest uppercase text-zinc-500">Stat four</p>
+      <div class="md:col-span-8 space-y-4">
+        <div class="reveal flex items-start gap-6 rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8">
+          <span class="font-display text-[#D4AF37] text-lg mt-0.5">01</span>
+          <div>
+            <h3 class="font-display font-semibold text-zinc-50 text-lg tracking-tight">Online Training (Customized) — $199</h3>
+            <p class="mt-2 text-sm text-zinc-500 font-light leading-relaxed">Commit to transformation remotely. Customized workout plan, nutrition guide, and weekly check-ins.</p>
+          </div>
+        </div>
+        <div class="reveal flex items-start gap-6 rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8" style="transition-delay: 60ms">
+          <span class="font-display text-[#D4AF37] text-lg mt-0.5">02</span>
+          <div>
+            <h3 class="font-display font-semibold text-zinc-50 text-lg tracking-tight">1-on-1 Session (In Home) — $150 / hr</h3>
+            <p class="mt-2 text-sm text-zinc-500 font-light leading-relaxed">Elite personal training in the comfort of your own space. Personalized attention, all equipment provided.</p>
+          </div>
+        </div>
+        <div class="reveal flex items-start gap-6 rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8" style="transition-delay: 120ms">
+          <span class="font-display text-[#D4AF37] text-lg mt-0.5">03</span>
+          <div>
+            <h3 class="font-display font-semibold text-zinc-50 text-lg tracking-tight">Personal Training — $260 / $650 / $935</h3>
+            <p class="mt-2 text-sm text-zinc-500 font-light leading-relaxed">Weekly, bi-weekly, or 3x-week programs. From goal setting and form correction up to intense, consistent training for serious transformations.</p>
+          </div>
+        </div>
+        <div class="reveal flex items-start gap-6 rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8" style="transition-delay: 180ms">
+          <span class="font-display text-[#D4AF37] text-lg mt-0.5">04</span>
+          <div>
+            <h3 class="font-display font-semibold text-zinc-50 text-lg tracking-tight">Motivational-Venting Call — $50 / 45 min</h3>
+            <p class="mt-2 text-sm text-zinc-500 font-light leading-relaxed">A Zoom or phone line for the hard days. Rod listens — or chimes in with an honest opinion, your preference.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE PILLARS ============ -->
+  <section class="px-6 lg:px-8 py-12 md:py-16 border-t border-white/5">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16">
+      <div class="md:col-span-4">
+        <p class="reveal font-display text-xs tracking-[0.35em] uppercase text-zinc-500">The pillars</p>
+        <h2 class="reveal font-display font-semibold text-zinc-50 text-2xl md:text-4xl tracking-tight mt-3" style="transition-delay: 80ms">
+          How results<br />are built.
+        </h2>
+      </div>
+      <div class="md:col-span-8 space-y-4">
+        <div class="reveal flex items-start gap-6 rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8">
+          <span class="font-display text-[#D4AF37] text-lg mt-0.5">01</span>
+          <div>
+            <h3 class="font-display font-semibold text-zinc-50 text-lg tracking-tight">Tailored programming</h3>
+            <p class="mt-2 text-sm text-zinc-500 font-light leading-relaxed">Every body is different. Your plan is engineered specifically for your biomechanics and goals — no cookie-cutter programs.</p>
+          </div>
+        </div>
+        <div class="reveal flex items-start gap-6 rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8" style="transition-delay: 60ms">
+          <span class="font-display text-[#D4AF37] text-lg mt-0.5">02</span>
+          <div>
+            <h3 class="font-display font-semibold text-zinc-50 text-lg tracking-tight">24/7 accountability</h3>
+            <p class="mt-2 text-sm text-zinc-500 font-light leading-relaxed">Direct access to coaching to keep you on track — even on your toughest days.</p>
+          </div>
+        </div>
+        <div class="reveal flex items-start gap-6 rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8" style="transition-delay: 120ms">
+          <span class="font-display text-[#D4AF37] text-lg mt-0.5">03</span>
+          <div>
+            <h3 class="font-display font-semibold text-zinc-50 text-lg tracking-tight">Nutritional mastery</h3>
+            <p class="mt-2 text-sm text-zinc-500 font-light leading-relaxed">Fuel your body like an athlete with custom macro plans that fit your lifestyle, not the other way around.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRANSFORMATION ARTWORK ============ -->
+  <section class="px-6 lg:px-8 py-12 md:py-16 border-t border-white/5">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16">
+      <div class="md:col-span-4">
+        <p class="reveal font-display text-xs tracking-[0.35em] uppercase text-zinc-500">Proof</p>
+        <h2 class="reveal font-display font-semibold text-zinc-50 text-2xl md:text-4xl tracking-tight mt-3" style="transition-delay: 80ms">
+          Real work,<br />real results.
+        </h2>
+        <p class="reveal mt-4 text-zinc-500 font-light leading-relaxed" style="transition-delay: 120ms">
+          "Rod Harris isn't just a personal trainer; he's an architect of human
+          performance." — Marcus T., Elite Client
+        </p>
+      </div>
+      <div class="md:col-span-8 space-y-4">
+        <div class="reveal rounded-2xl border border-white/10 overflow-hidden bg-white/[0.02]">
+          <img src="assets/img/sig-results-1.png" alt="Sweat Is Gold client transformation" class="w-full max-h-[420px] object-cover opacity-90" />
+        </div>
+        <div class="reveal grid grid-cols-2 gap-4" style="transition-delay: 80ms">
+          <div class="rounded-2xl border border-white/10 overflow-hidden bg-white/[0.02]">
+            <img src="assets/img/sig-rod-journey.png" alt="Sweat Is Gold journey" class="w-full h-40 object-cover opacity-90" />
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-white/[0.02] p-6 flex flex-col justify-center">
+            <p class="font-display text-xs tracking-[0.35em] uppercase text-[#D4AF37] mb-2">The journey</p>
+            <p class="text-sm text-zinc-500 font-light leading-relaxed">A career forged through relentless discipline — and a deep understanding of human potential.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ IDENTITY ============ -->
+  <section class="px-6 lg:px-8 py-12 md:py-16 border-t border-white/5">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-10 md:gap-16">
+      <div class="md:col-span-4">
+        <p class="reveal font-display text-xs tracking-[0.35em] uppercase text-zinc-500">Identity</p>
+        <h2 class="reveal font-display font-semibold text-zinc-50 text-2xl md:text-4xl tracking-tight mt-3" style="transition-delay: 80ms">
+          The brand.
+        </h2>
+      </div>
+      <div class="md:col-span-8 space-y-10">
+        <div class="reveal flex flex-col sm:flex-row items-start sm:items-center gap-8 rounded-2xl border border-white/10 bg-white/[0.02] p-8">
+          <img src="assets/img/sweatisgold-logo.svg" alt="Sweat Is Gold logo" class="w-24 h-24 rounded-2xl" />
+          <div>
+            <p class="font-display font-semibold text-zinc-50 text-xl tracking-tight">The mark</p>
+            <p class="mt-2 text-sm text-zinc-500 font-light leading-relaxed">Gold on black — a barbell mark with a gradient title treatment, echoing a name that says it plainly: the sweat is your currency, the results are the gold.</p>
+          </div>
+        </div>
+        <div class="reveal grid grid-cols-2 gap-4" style="transition-delay: 60ms">
+          <div class="rounded-2xl border border-white/10 overflow-hidden">
+            <div class="h-24 bg-[#000000] border-b border-white/5"></div>
+            <div class="p-4">
+              <p class="text-xs tracking-widest uppercase text-zinc-400">Void</p>
+              <p class="text-sm text-zinc-600 font-mono">#000000</p>
+            </div>
+          </div>
+          <div class="rounded-2xl border border-white/10 overflow-hidden">
+            <div class="h-24 bg-[#D4AF37]"></div>
+            <div class="p-4">
+              <p class="text-xs tracking-widest uppercase text-zinc-400">Signal</p>
+              <p class="text-sm text-zinc-600 font-mono">#D4AF37</p>
+            </div>
+          </div>
+        </div>
+        <div class="reveal grid grid-cols-2 gap-4" style="transition-delay: 120ms">
+          <div class="rounded-2xl border border-white/10 overflow-hidden">
+            <div class="h-24 bg-[#FCCF4D]"></div>
+            <div class="p-4">
+              <p class="text-xs tracking-widest uppercase text-zinc-400">Highlight</p>
+              <p class="text-sm text-zinc-600 font-mono">#FCCF4D</p>
+            </div>
+          </div>
+          <div class="rounded-2xl border border-white/10 overflow-hidden">
+            <div class="h-24 bg-[#FBF5B7]"></div>
+            <div class="p-4">
+              <p class="text-xs tracking-widest uppercase text-zinc-400">Champagne</p>
+              <p class="text-sm text-zinc-600 font-mono">#FBF5B7</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -134,11 +331,11 @@
         <p class="reveal font-display text-xs tracking-[0.35em] uppercase text-zinc-500">In depth</p>
       </div>
       <div class="md:col-span-8 space-y-14">
-        <!-- Replace this section with real details for venture three -->
+        <!-- More detailed sections for Sweat Is Gold go below — the story, programs, clients -->
         <div class="reveal">
           <h3 class="font-display font-semibold text-zinc-50 text-xl md:text-2xl tracking-tight mb-4">Where content goes</h3>
           <div class="rounded-2xl border border-dashed border-white/10 p-10 md:p-16 text-center">
-            <p class="text-sm text-zinc-600 font-light">Details for this section go here — story, photos, links, timeline.</p>
+            <p class="text-sm text-zinc-600 font-light">Add the deeper Sweat Is Gold story here — the journey, client wins, programs.</p>
           </div>
         </div>
       </div>
@@ -153,7 +350,7 @@
           <svg class="w-5 h-5 text-zinc-500 group-hover:text-zinc-300 group-hover:-translate-x-0.5 transition-all" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"/></svg>
           <div>
             <p class="text-xs tracking-widest uppercase text-zinc-500 mb-1">Previous</p>
-            <p class="font-display text-zinc-200">Venture Two</p>
+            <p class="font-display text-zinc-200">ReadyCleans</p>
           </div>
         </div>
       </a>
