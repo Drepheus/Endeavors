@@ -12,14 +12,24 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </noscript>
+ 
   <style>
     ::selection { background: #e4e4e7; color: #0a0a0a; }
     html { scrollbar-width: thin; scrollbar-color: #3f3f46 #0a0a0a; }
     body { -webkit-font-smoothing: antialiased; }
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
     .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    @media (max-width: 1024px) {
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
     .card-glow { transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, background 0.4s ease; }
     .card-glow:hover { transform: translateY(-6px); border-color: #52525b; }
     .card-glow::after {
