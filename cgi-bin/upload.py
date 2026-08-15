@@ -15,6 +15,7 @@ IMG_DIR = os.path.join(BASE, "assets", "img")
 LOG_FILE = os.path.join(BASE, "cgi-bin", "upload.log")
 ALLOWED_SLOTS = {
     "percify-dashboard-1", "percify-dashboard-2", "percify-dashboard-3",
+    "percify-dashboard-4", "percify-dashboard-5", "percify-dashboard-6",
     "readycleans-1", "readycleans-2", "readycleans-3",
 }
 MAX_BYTES = 10 * 1024 * 1024  # 10 MB
