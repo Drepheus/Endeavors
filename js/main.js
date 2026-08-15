@@ -115,4 +115,51 @@
       input.value = '';
     });
   });
+
+  /* ---------- Image lightbox popup ---------- */
+  document.querySelectorAll('.photo-slot img').forEach(function (img) {
+    img.addEventListener('click', function (e) {
+      if (img.style.display === 'none') return; // image is broken/placeholder showing
+
+      var overlay = document.createElement('div');
+      overlay.className = 'fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-8 cursor-zoom-out opacity-0 transition-opacity duration-300';
+      
+      var largeImg = document.createElement('img');
+      largeImg.src = img.src;
+      largeImg.className = 'max-w-full max-h-full rounded-lg object-contain shadow-2xl transform scale-95 transition-transform duration-300';
+      
+      var closeBtn = document.createElement('button');
+      closeBtn.innerHTML = '&times;';
+      closeBtn.className = 'absolute top-6 right-6 text-zinc-400 hover:text-white text-4xl font-light w-10 h-10 flex items-center justify-center cursor-pointer';
+      
+      overlay.appendChild(largeImg);
+      overlay.appendChild(closeBtn);
+      document.body.appendChild(overlay);
+      
+      // Animate opening
+      setTimeout(function () {
+        overlay.classList.remove('opacity-0');
+        largeImg.classList.remove('scale-95');
+      }, 10);
+      
+      function closeLightbox() {
+        overlay.classList.add('opacity-0');
+        largeImg.classList.add('scale-95');
+        setTimeout(function () {
+          overlay.remove();
+        }, 300);
+      }
+      
+      overlay.addEventListener('click', closeLightbox);
+      closeBtn.addEventListener('click', closeLightbox);
+    });
+  });
+
+  /* ---------- Hide edit/upload controls on production domains ---------- */
+  var isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname === '';
+  if (!isLocal) {
+    document.querySelectorAll('.photo-upload-btn').forEach(function (btn) {
+      btn.style.display = 'none';
+    });
+  }
 })();

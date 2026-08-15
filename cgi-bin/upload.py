@@ -14,9 +14,8 @@ BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 IMG_DIR = os.path.join(BASE, "assets", "img")
 LOG_FILE = os.path.join(BASE, "cgi-bin", "upload.log")
 ALLOWED_SLOTS = {
-    "dashboard-1", "dashboard-2", "dashboard-3",
+    "percify-dashboard-1", "percify-dashboard-2", "percify-dashboard-3",
     "readycleans-1", "readycleans-2", "readycleans-3",
-    "sweatisgold-1", "sweatisgold-2", "sweatisgold-3",
 }
 MAX_BYTES = 10 * 1024 * 1024  # 10 MB
 ALLOWED_EXTS = {".png", ".jpg", ".jpeg", ".webp"}
@@ -31,7 +30,7 @@ def log_error(msg):
 def respond(code, payload):
     body = json.dumps(payload).encode("utf-8")
     statuses = {200: "200 OK", 400: "400 Bad Request", 405: "405 Method Not Allowed", 500: "500 Internal Server Error"}
-    head = f"Status: {statuses.get(code, '400 Bad Request')}\nContent-Type: application/json\nContent-Length: {len(body)}\n\n"
+    head = f"Status: {statuses.get(code, '400 Bad Request')}\r\nContent-Type: application/json\r\nContent-Length: {len(body)}\r\n\r\n"
     sys.stdout.flush()
     out = sys.stdout.buffer
     out.write(head.encode("utf-8"))
@@ -69,7 +68,7 @@ def main():
         if len(data) > MAX_BYTES:
             respond(400, {"ok": False, "error": "File too large (max 10 MB)"})
 
-        filename = f"{slot}{ext}"
+        filename = f"{slot}.png"
         try:
             with open(os.path.join(IMG_DIR, filename), "wb") as out:
                 out.write(data)
