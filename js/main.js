@@ -69,4 +69,50 @@
       card.style.setProperty('--my', (e.clientY - rect.top) + 'px');
     });
   });
+
+  /* ---------- Photo slot uploads ---------- */
+  document.querySelectorAll('.photo-slot').forEach(function (slot) {
+    if (slot.dataset.uploadBound) return;
+    slot.dataset.uploadBound = '1';
+
+    var btn = slot.querySelector('.photo-upload-btn');
+    var input = slot.querySelector('input[type=file]');
+    var img = slot.querySelector('img');
+    var placeholder = slot.querySelector('.photo-placeholder');
+    var status = slot.querySelector('.photo-status');
+    var slotName = slot.dataset.slot;
+
+    function flash(message, isError) {
+      if (!status) return;
+      status.textContent = message;
+      status.style.color = isError ? '#EF4444' : (slot.dataset.accent || '#FFD40A');
+      clearTimeout(slot._statusTimer);
+      slot._statusTimer = setTimeout(function () {
+        status.textContent = '';
+      }, 3000);
+    }
+
+    input.addEventListener('change', function () {
+      var file = input.files[0];
+      if (!file) return;
+      var fd = new FormData();
+      fd.append('slot', slotName);
+      fd.append('file', file);
+      flash('Uploading…', false);
+      fetch('/cgi-bin/upload.py', { method: 'POST', body: fd })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          if (data.ok) {
+            img.src = data.url;
+            img.style.display = '';
+            if (placeholder) placeholder.style.display = 'none';
+            flash('Saved ✓', false);
+          } else {
+            flash(data.error || 'Upload failed', true);
+          }
+        })
+        .catch(function () { flash('Upload failed', true); });
+      input.value = '';
+    });
+  });
 })();
