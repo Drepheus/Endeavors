@@ -44,7 +44,14 @@
 
   /* ---------- Scroll reveal ---------- */
   var revealEls = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window) {
+  var isMobile = window.innerWidth < 768;
+
+  if (isMobile) {
+    // Force immediate visibility on mobile to prevent viewports/observer scroll issues
+    revealEls.forEach(function (el) {
+      el.classList.add('is-visible');
+    });
+  } else if ('IntersectionObserver' in window) {
     var observer = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
@@ -54,7 +61,7 @@
           }
         });
       },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+      { threshold: 0.05, rootMargin: '0px 0px -20px 0px' }
     );
     revealEls.forEach(function (el) { observer.observe(el); });
   } else {
