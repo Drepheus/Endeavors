@@ -117,9 +117,13 @@
   });
 
   /* ---------- Image lightbox popup ---------- */
-  document.querySelectorAll('.photo-slot img').forEach(function (img) {
-    img.addEventListener('click', function (e) {
-      if (img.style.display === 'none') return; // image is broken/placeholder showing
+  document.querySelectorAll('.photo-slot').forEach(function (slot) {
+    slot.addEventListener('click', function (e) {
+      // Don't trigger lightbox if the user clicked the upload button or file input
+      if (e.target.closest('.photo-upload-btn')) return;
+
+      var img = slot.querySelector('img');
+      if (!img || img.style.display === 'none') return; // image is broken/placeholder showing
 
       var overlay = document.createElement('div');
       overlay.className = 'fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-8 cursor-zoom-out opacity-0 transition-opacity duration-300';
